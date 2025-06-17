@@ -22,7 +22,7 @@ Tracking unmanned aerial vehicles (UAVs) in **low-light conditions** is challeng
 The system supports **UAV-to-Ground** and **Ground-to-UAV** tracking using co-training of the LLIE module and Tracker.
 
 <p align="center">
-  <img src="titlepic.png" alt="System Overview" width="700">
+  <img src="image.png" alt="System Overview" width="700">
 </p>
 
 ### 🚀 Performance Analysis (FPS)
