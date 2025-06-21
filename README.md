@@ -1,3 +1,4 @@
+
 # Co-LLIETrack: Co-trained Low Light Image Enhancement-Tracker for UAV Tracking
 
 <p align="center">
@@ -19,149 +20,59 @@ Tracking unmanned aerial vehicles (UAVs) in **low-light conditions** is challeng
 
 ### 📷 LLIE-Tracker System Architecture
 
-The system supports **UAV-to-Ground** and **Ground-to-UAV** tracking using co-training of the LLIE module and Tracker.
-
 <p align="center">
-  <img src="image.png" alt="System Overview" width="700">
-</p>
-
-### 🚀 Performance Analysis (FPS)
-
-<p align="center">
-  <img src="fps_performace.png" alt="Performance Chart" width="700">
+  <img src="titlepic.png" alt="System Overview" width="700">
 </p>
 
 ---
 
-## 📦 Project Structure
+## 🧾 Dataset Generation: TSIT Pipeline
 
-```
-Co-LLIETrack/
-│
-├── dataset/                     # Dataset scripts and instructions
-│   ├── DeepLowLight-UAV/       # Synthetic low-light dataset (optional download)
-│
-├── models/                     # LLIE and Tracker models
-│   ├── HighLightNet/
-│   ├── DarkLighter/
-│   └── SCT/
-│
-├── training/                   # Co-training pipeline code
-│   └── sfmiou_loss.py
-│
-├── inference/                  # Test scripts
-│   └── run_tracker.py
-│
-├── utils/
-│   └── visualization.py
-│
-├── LLIETracker/  
-├── README.md                   # This file
-└── requirements.txt
-```
+<p align="center">
+  <img src="TSTIpipeline.png" alt="TSIT Day-to-Night Translation Pipeline" width="700">
+</p>
+
+This pipeline converts **daytime UAV images** into **realistic low-light versions** using style transfer from dark style images. This forms the backbone of our **DeepLowLight-UAV** dataset generation.
 
 ---
 
-## 🧪 Getting Started
+## 🖼️ Day vs Night Samples
 
-### 🔧 Installation
+<p align="center">
+  <img src="titlepic2(1).png" alt="Day and Translated Night UAV Images" width="850">
+</p>
 
-```bash
-git clone https://github.com/yourusername/Co-LLIETrack.git
-cd Co-LLIETrack
-pip install -r requirements.txt
-```
-
-### 📁 Dataset Preparation
-
-1. **Download Anti-UAV-I dataset**: [Anti-UAV Benchmark](https://anti-uav.github.io/leaderboard/)
-2. **Generate Synthetic Data** using `dataset/deeplowlight_generator.py` (based on TSIT and BSRGAN)
-3. Place data in `dataset/DeepLowLight-UAV/`
+Top Row: Daytime UAV Frames  
+Bottom Row: Corresponding Low-Light Translated Frames
 
 ---
 
-## 🏃‍♂️ Training
+## 🛰️ Object Position Distribution
 
-```bash
-python training/train_sfmiou.py --config configs/highlightnet_mixformer.yaml
-```
+<p align="center">
+  <img src="Distribution.png" alt="UAV Position Distribution in Dataset" width="850">
+</p>
 
-This performs **2-stage training**:
-- Stage 1: Pretrain tracker on daytime UAV images
-- Stage 2: Co-train LLIE + tracker on synthetic low-light data with **SFMIOU loss**
+The above heatmaps show the **spatial distribution** of UAVs in the training, validation, and test subsets of the DeepLowLight-UAV dataset.
 
 ---
 
-## 🧠 Evaluation
+## 🆚 Real vs Synthetic Comparison
 
-```bash
-python inference/run_tracker.py --dataset anti-uav-i --tracker MixFormer --llie HighLightNet
-```
+<p align="center">
+  <img src="anti-dll2.png" alt="Real Anti-UAV vs DeepLowLight-UAV" width="850">
+</p>
 
-Outputs tracking predictions, performance metrics (precision/IoU), and FPS.
-
----
-
-## 📊 Key Results
-
-### ✅ Co-Training Performance Gains
-
-| LLIE Method   | Tracker       | Separate | Co-Trained | Gain (%) |
-|---------------|---------------|----------|------------|----------|
-| HighLightNet  | SiamAPN++     | 0.591    | 0.607      | +2.7     |
-| SCT           | ATOM          | 0.641    | 0.677      | +5.6     |
-| DarkLighter   | SuperDiMP     | 0.778    | 0.795      | +2.1     |
-| UDAT          | ODTrack       | 0.648    | 0.674      | +4.0     |
-
-> See full results in the paper (Table IV–VI) and figures 9–14 for attribute-based and qualitative evaluations.
+Top Row: Real low-light images from the **Anti-UAV-I** dataset  
+Bottom Row: **DeepLowLight-UAV** samples generated synthetically using our TSIT + BSRGAN pipeline.
 
 ---
 
-## 🗂 Dataset: DeepLowLight-UAV
+## 📩 Dataset Access
 
-| Metric          | Value     |
-|-----------------|-----------|
-| Sequences       | 55        |
-| Frames          | 74,025    |
-| Source          | Day-to-Night via TSIT + BSRGAN |
-| Annotations     | Bounding Boxes (from day images) |
-| Augmentation    | Blur, Noise, Contrast Variations |
+The **DeepLowLight-UAV** dataset is available for **non-commercial research use**.  
+To request access, please send an email with your institutional details and intended use case to:
+
+📧 **tushar.sangam@researchinvision.ai**
 
 ---
-
-## 📌 Highlights
-
-- ⚡ **Real-Time**: Avg FPS >30 (ATOM: 36.3 FPS)
-- 📈 **Improved LLIE Quality**: Co-training improves PSNR of enhancement outputs by up to 7.4%
-- 🎯 **Generalizable**: Works well even when trained only on synthetic data
-
----
-
-## 📄 Citation
-
-If you find this work helpful, please cite:
-
-```bibtex
-@article{CoLLIETrack2025,
-  title     = {Co-LLIETrack: Co-trained Low Light Image Enhancement-Tracker for UAV Tracking},
-  author    = {Tushar Sangam and collaborators},
-  journal   = {IEEE Journal of LaTeX Class Files},
-  year      = {2025},
-  note      = {arXiv preprint arXiv:XXXX.XXXXX}
-}
-```
-
----
-
-## 🤝 Acknowledgements
-
-- [Anti-UAV Benchmark](https://anti-uav.github.io/leaderboard/)
-- TSIT, BSRGAN, HighLightNet, Mixformer authors
-- Dataset annotation support via `LabelImg`
-
----
-
-## 📬 Contact
-
-For questions or contributions, please open an issue or reach out at:
-**email@example.com**
