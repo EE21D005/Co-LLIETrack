@@ -73,7 +73,7 @@ Bottom Row: **DeepLowLight-UAV** samples generated synthetically using our TSIT 
 The **DeepLowLight-UAV** dataset is available for **non-commercial research use**.  
 To request access, please send an email with your institutional details and intended use case to:
 
-📧 **tushar.sangam@researchinvision.ai**
+📧 **ee12d005@iittp.ac.in**
 
 ---
 
@@ -197,7 +197,7 @@ If you find this work helpful, please cite:
 ```bibtex
 @article{CoLLIETrack2025,
   title     = {Co-LLIETrack: Co-trained Low Light Image Enhancement-Tracker for UAV Tracking},
-  author    = {Tushar Sangam and collaborators},
+  author    = {},
   journal   = {IEEE Journal of LaTeX Class Files},
   year      = {2025},
   note      = {arXiv preprint arXiv:XXXX.XXXXX}
