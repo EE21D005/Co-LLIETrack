@@ -26,7 +26,7 @@ The system supports **UAV-to-Ground** and **Ground-to-UAV** tracking using co-tr
 </p>
 
 
-## 🧾 Dataset Generation: TSIT Pipeline
+## 🧾 DeepLowLight-UAV Dataset Generation Pipeline
 
 <p align="center">
   <img src="TSTIpipeline.png" alt="TSIT Day-to-Night Translation Pipeline" width="700">
