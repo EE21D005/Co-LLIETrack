@@ -1,7 +1,7 @@
 # Co-LLIETrack: Co-trained Low Light Image Enhancement-Tracker for UAV Tracking
 
 <p align="center">
-  <img src="titlepic.png" alt="Architecture" width="700">
+  <img src="Images/titlepic.png" alt="Architecture" width="700">
 </p>
 
 ## 🔍 Abstract
@@ -22,14 +22,14 @@ Tracking unmanned aerial vehicles (UAVs) in **low-light conditions** is challeng
 The system supports **UAV-to-Ground** and **Ground-to-UAV** tracking using co-training of the LLIE module and Tracker.
 
 <p align="center">
-  <img src="image.png" alt="System Overview" width="700">
+  <img src="Images/image.png" alt="System Overview" width="700">
 </p>
 
 
 ## 🧾 DeepLowLight-UAV Dataset Generation Pipeline
 
 <p align="center">
-  <img src="TSTIpipeline.png" alt="TSIT Day-to-Night Translation Pipeline" width="700">
+  <img src="Images/TSTIpipeline.png" alt="TSIT Day-to-Night Translation Pipeline" width="700">
 </p>
 
 This pipeline converts **daytime UAV images** into **realistic low-light versions** using style transfer from dark style images. This forms the backbone of our **DeepLowLight-UAV** dataset generation.
@@ -39,7 +39,7 @@ This pipeline converts **daytime UAV images** into **realistic low-light version
 ## 🖼️ Day vs Night Samples
 
 <p align="center">
-  <img src="titlepic2(1).png" alt="Day and Translated Night UAV Images" width="850">
+  <img src="Images/titlepic2(1).png" alt="Day and Translated Night UAV Images" width="850">
 </p>
 
 Top Row: Daytime UAV Frames  
@@ -50,7 +50,7 @@ Bottom Row: Corresponding Low-Light Translated Frames
 ## 🛰️ Object Position Distribution
 
 <p align="center">
-  <img src="Distribution.png" alt="UAV Position Distribution in Dataset" width="850">
+  <img src="Images/Distribution.png" alt="UAV Position Distribution in Dataset" width="850">
 </p>
 
 The above heatmaps show the **spatial distribution** of UAVs in the training, validation, and test subsets of the DeepLowLight-UAV dataset.
@@ -60,7 +60,7 @@ The above heatmaps show the **spatial distribution** of UAVs in the training, va
 ## 🆚 Real vs Synthetic Comparison
 
 <p align="center">
-  <img src="anti-dll2.png" alt="Real Anti-UAV vs DeepLowLight-UAV" width="850">
+  <img src="Images/anti-dll2.png" alt="Real Anti-UAV vs DeepLowLight-UAV" width="850">
 </p>
 
 Top Row: Real low-light images from the **Anti-UAV-I** dataset  
@@ -81,7 +81,7 @@ To request access, please send an email with your institutional details and inte
 ### 🚀 Performance Analysis (FPS)
 
 <p align="center">
-  <img src="fps_performace.png" alt="Performance Chart" width="700">
+  <img src="Images/fps_performace.png" alt="Performance Chart" width="700">
 </p>
 
 ---
